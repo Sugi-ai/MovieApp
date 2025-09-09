@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <div>
       <NavigationBarMenu></NavigationBarMenu>
+
       <div>
         <img
           className="flex justify-center mt-6 w-360 h-150 "
