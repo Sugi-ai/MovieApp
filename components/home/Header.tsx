@@ -8,8 +8,9 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
+import { ThemeToggler } from "./ThemeToggler";
 
-export const NavigationBarMenu = () => {
+export const Header = () => {
   return (
     <div className=" flex justify-center h-9 my-[11.5px] ">
       <img src="MovieZLogo.txt" alt="logo" className="h-5 2-23 m-2" />
@@ -27,6 +28,12 @@ export const NavigationBarMenu = () => {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
+
+      <input
+        className="w-[370px] ml-[12px] mr-[300px]"
+        placeholder="search"
+      ></input>
+      <ThemeToggler></ThemeToggler>
     </div>
   );
 };
