@@ -16,3 +16,4 @@ export type movieResponseType = {
   totalPages: number;
   results: MovieType[];
 };
+

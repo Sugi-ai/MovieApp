@@ -28,10 +28,67 @@ const GENRES = [
     name: "Comedy",
   },
   {
+    name: "Documentary"
+  },
+  {
+    name: "Drama"
+  },
+  {
+    name:"Family"
+  },
+  {
+    name: "Fantasy"
+  },
+  {
+    name:"Film-Noir"
+  },
+  {
+    name:"Gmame-Show"
+  },
+  {
+    name:"History"
+  },
+  {
     name: "Horror",
   },
   {
-    name: "Sci-fi",
+    name: "Music",
+  },
+  {
+    name: "Musical",
+  },
+  {
+    name: "Mystery",
+  },
+  {
+    name: "News",
+  },
+  {
+    name: "Reality-TV",
+  },
+  {
+    name: "Romance",
+  },
+  {
+    name: "Sci-Fi",
+  },
+  {
+    name: "Short",
+  },
+  {
+    name: "Sport",
+  },
+  {
+    name: "Talk-Show",
+  },
+  {
+    name: "Thriller",
+  },
+  {
+    name: "War",
+  },
+  {
+    name: "Western",
   },
 ];
 
@@ -47,7 +104,7 @@ export function GenreDropdown() {
         <DropdownMenuLabel className="text-2xl font-bold">
           Genres
         </DropdownMenuLabel>
-        <p className="px-2">See list of movies by genre</p>
+        <p className="px-2 text-[#09090B] ">See list of movies by genre</p>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="hover:!bg-transparent">
           {GENRES.map((genre) => (
