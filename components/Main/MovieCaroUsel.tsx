@@ -10,8 +10,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { MovieType } from "@/types";
 
-export function MovieCarousel() {
+
+type MovieCarouselProps = {
+  movies: MovieType[];
+};
+
+export function MovieCarousel({ movies }: MovieCarouselProps) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
@@ -33,12 +39,14 @@ export function MovieCarousel() {
     <>
       <Carousel setApi={setApi} className="w-screen">
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
+          {movies.map((movie, index) => (
             <CarouselItem key={index}>
               <div className="p-1">
                 <Card>
                   <CardContent className="flex aspect-video max-h-[600px] items-center justify-center p-6">
-                    <span className="text-4xl font-semibold">{index + 1}</span>
+                    <span className="text-4xl font-semibold">
+                      {movie.title}
+                    </span>
                   </CardContent>
                 </Card>
               </div>
