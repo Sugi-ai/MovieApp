@@ -10,6 +10,7 @@ export const Header = () => {
       <div className="max-w-[1280px] flex justify-between m-auto items-center py-3">
         <div>
           <img src="MovieZLogo.png" className="h-5" />
+          
         </div>
         <div className="flex gap-5">
           <GenreDropdown />
