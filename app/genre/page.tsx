@@ -17,12 +17,10 @@ const Genre = async ({searchParams}: GenrePageProps) => {
     console.log("Filteedsen KINONUUD", filteredMoviesResponse)
 
 
-    return <div>
+    return <div className="flex flex-wrap gap-6 justify-center">
         {filteredMoviesResponse.results.slice(0,10).map((movie)=> (
             <MovieCard  key={movie.id} 
-                        title={movie.title} 
-                        score={movie.vote_average} 
-                        image={movie.poster_path}/>
+                        movie={movie}/>
         ))}
     </div>
 }

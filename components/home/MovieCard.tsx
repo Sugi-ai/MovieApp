@@ -30,7 +30,7 @@ export const MovieCard = ({ movie }: { movie: MovieType}) => {
           <FaStar color="#FDE047" />
           <span>{movie?.vote_average}/10</span>
         </CardDescription>
-        <div>
+        <div className="mb-4 mt-2">
           {movie?.title}
       </div>
       </CardFooter>

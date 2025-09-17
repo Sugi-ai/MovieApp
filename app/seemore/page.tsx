@@ -1,0 +1,43 @@
+import { MoviesContainer } from "@/components/home";
+import { movieResponseType, MovieType } from "@/types";
+import {
+    getNOwPlayingMovies,
+    getPopularMovies,
+    getTopRatedMovies,
+    getUpcomingMovies,
+} from "@/utils/get-data"
+
+interface Props {
+    searchParams: {
+        title: string;
+    };
+}
+
+const  ViewMorePage =async ({searchParams: {title} }: Props) => {
+
+    let movies: movieResponseType;
+
+
+    if (title=== "Now Playing") {
+        movies = await getNOwPlayingMovies();
+    } else if (title=== "Upcoming") {
+        movies = await getUpcomingMovies ();
+    } else if (title=== "Top Rated") {
+        movies = await getTopRatedMovies();
+    } else if(title==="Popular") {
+        movies = await getPopularMovies();
+    }
+
+    return (
+    <div className="py-10 w-full">
+            <h2 className="text-3xl font-bold px-10 mb-5  max-sm:text-2xl">
+                "Results of {title}"
+            </h2>
+
+            <MoviesContainer movies={movies!.results} title={title} />
+    </div>
+    )
+}
+
+export default ViewMorePage;
+

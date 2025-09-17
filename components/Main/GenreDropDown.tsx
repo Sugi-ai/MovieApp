@@ -33,7 +33,7 @@ export async function GenreDropdown() {
         <p className="px-2 text-[#09090B] ">See list of movies by genre</p>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="hover:!bg-transparent max-w-[400px] flex flex-wrap">
-          {genresResponse.genres.map((genre) => (
+          {genresResponse.genres.map((genre:{id:string, name:string}) => (
             <Link key={genre.id} href={`/genre?id=${genre.id}`}>
               <Badge variant="outline">
                 {genre.name}
