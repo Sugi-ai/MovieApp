@@ -1,5 +1,5 @@
 import { MovieCard, MoviesContainer } from "@/components/home";
-import { MovieCarousel } from "@/components/main/";
+import { MovieCarousel } from "@/components/general";
 import { movieResponseType } from "@/types";
 import { getMoviesList } from "@/utils/get-data";
 
