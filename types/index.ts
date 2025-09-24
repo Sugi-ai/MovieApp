@@ -19,3 +19,13 @@ export type movieResponseType = {
 
 
 
+export type TrailerType = {
+  id: string;
+  key: "string";
+  type: "string";
+}
+
+export type trailerResponseType = {
+  id: number;
+  results: TrailerType[];
+}

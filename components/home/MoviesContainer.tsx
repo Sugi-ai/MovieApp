@@ -21,7 +21,10 @@ export const MoviesContainer = ({ movies, title }: MoviesContainerProps) => {
         {movies.slice(0, 10).map((movie) => (
           <MovieCard
             key={movie?.id}
-          movie={movie}
+            id={movie.id}
+            title={movie.title}
+            score={movie.vote_average}
+            image={movie.poster_path}
           />
         ))}
       </div>

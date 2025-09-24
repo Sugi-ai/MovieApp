@@ -8,14 +8,21 @@ import {
 } from "../ui/card";
 import { FaStar } from "react-icons/fa";
 import { MovieType } from "@/types";
+import Link from "next/link";
+
+type MovieCardProps = {
+  title: string;
+  score: number;
+  image: string;
+  id: number;
+};
 
 
 
 
-export const MovieCard = ({ movie }: { movie: MovieType}) => {
- 
-  
+export const MovieCard = ({ title, score, image, id }: MovieCardProps) => {
   return (
+    <Link href={`/details/${id}`}>
     <Card className="w-[230px] bg-secondary p-0 overflow-hidden gap-2">
       <CardContent className="p-0">
         <img

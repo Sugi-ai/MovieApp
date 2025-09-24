@@ -42,7 +42,7 @@ export const SearchSection = () => {
           <Popover open={isOpen}>
             <PopoverTrigger></PopoverTrigger>
             <PopoverContent className="w-[577px] h-[729px] rounded-b-lg "> {foundMovies?.results.slice(0, 5).map((movie)=> {
-            return <div>{movie.title}</div>
+            return <div>{movie.title}</div>;
           })} 
           <Link href={`/search?value=${searchValue}`}>See all results for {searchValue}</Link>
           </PopoverContent>

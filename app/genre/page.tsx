@@ -20,7 +20,10 @@ const Genre = async ({searchParams}: GenrePageProps) => {
     return <div className="flex flex-wrap gap-6 justify-center">
         {filteredMoviesResponse.results.slice(0,10).map((movie)=> (
             <MovieCard  key={movie.id} 
-                        movie={movie}/>
+                        id={movie.id}
+                        title={movie.title}
+                        score={movie.vote_average}
+                        image={movie.poster_path} />
         ))}
     </div>
 }
