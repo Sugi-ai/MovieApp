@@ -1,4 +1,4 @@
-import { Homepage, HomePageSkeleton } from "@/components/general";
+import { Homepage, HomePageSkeleton } from "@/components/main";
 import { Suspense } from "react";
 
 export default function Home() {

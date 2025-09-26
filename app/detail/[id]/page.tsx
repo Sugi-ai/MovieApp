@@ -1,15 +1,6 @@
-import {getMovieDetails, getMovieTrailers} from "@/utils/get-data";
-
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Button } from "@/components/ui/Button";
-
+import { TrailerDialog } from "@/components/trailer/TrailerDialog";
+import { TrailerResponseType } from "@/types";
+import { getMovieDetail, getMovieTrailers } from "@/utils/get-data";
 
 type DetailDynamicPageProps = {
   params: Promise<{ id: string }>;
@@ -18,55 +9,30 @@ type DetailDynamicPageProps = {
 export const generateMetadata = async ({ params }: DetailDynamicPageProps) => {
   const dynamicParams = await params;
   const id = dynamicParams.id;
-  const movieDetailData = await getMovieDetails(id);
-  
+  const movieDetailData = await getMovieDetail(id);
+
   return {
-    title: 'MovieZ | ${movieDetailData.title}',
-  }
- 
-} 
- 
+    title: `MovieZ | ${movieDetailData.title}`,
+  };
+};
 
+const DetailDynamicPage = async ({ params }: DetailDynamicPageProps) => {
+  const dynamicParams = await params;
+  const id = dynamicParams.id;
+  const movieDetailData = await getMovieDetail(id);
 
+  const trailerData: TrailerResponseType = await getMovieTrailers(id);
 
-
-  const DetailDynamicPage = async ({ params }: DetailDynamicPageProps) => {
-    const dynamicParams = await params;
-    const id = dynamicParams.id;
-    const movieDetailData = await getMovieDetails(id);
-
-    const trailerData: TrailerResponseType = await getMovieTrailers(id);
-
-    const trailer = trailerData.results.find((item) => item.type === "Trailer");
-
-
+  const trailer = trailerData.results.find((item) => item.type === "Trailer");
 
   return (
     <div className="text-2xl font-bold">
       {movieDetailData.title}
-      <div>
-        <Dialog>
-  <DialogTrigger asChild>
-    <Button>Watch Trailer</Button>
-    </DialogTrigger>
-  <DialogContent>
-    <DialogHeader>
-      <DialogTitle></DialogTitle>
-       <iframe
-          width="1920"
-          height="911"
-          src={`https://www.youtube.com/embed/${trailer?.key}`}
-          title={trailer?.type}
-          allowFullScreen
-        ></iframe>
-   
-    </DialogHeader>
-  </DialogContent>
-</Dialog>
-       
-      </div>
-  </div>
-    );
-}
+      <>
+        <TrailerDialog youtubeKey={trailer?.key} />
+      </>
+    </div>
+  );
+};
 
-export default DetailDynamicPage;    
+export default DetailDynamicPage; 
