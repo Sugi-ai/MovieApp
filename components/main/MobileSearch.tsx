@@ -4,7 +4,7 @@ import { useState } from "react";
 import { SearchSection } from "./SearchSection";
 import { Button } from "../ui/Button";
 import { Search, X } from "lucide-react";
-import { GenreDropdown } from "./GenreDropdown";
+import { GenreDropdown } from "./GenreDropDown";
 import { GenreResponseType } from "@/types";
 
 export const MobileSearch = ({
@@ -17,7 +17,7 @@ export const MobileSearch = ({
     <div className="block sm:hidden">
       {isOpen ? (
         <div className="flex gap-2">
-          <GenreDropdown genresResponse={genresResponse} />
+          <GenreDropdown/>
           <SearchSection />
           <Button
             onClick={() => {

@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
         hostname: "i.ibb.co",
       },
       {
-        protocol: "http",
+        protocol: "https",
         hostname: "image.tmdb.org",
       },
     ],
